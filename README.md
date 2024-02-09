@@ -1,87 +1,49 @@
-# Streamlit Component Templates
+# TP Data Collection
 
-This repo contains templates and example code for creating [Streamlit](https://streamlit.io) Components.
+Ce repos contient l'application du tp data collection avec comme back [Streamlit](https://streamlit.io) et comme front [React]('https://fr.react.dev/').
 
-For complete information, please see the [Streamlit Components documentation](https://docs.streamlit.io/en/latest/streamlit_components.html)!
+Pour plus d'info clique [ici](https://docs.streamlit.io/en/latest/streamlit_components.html)!
 
-## Overview
+## Les prerequis
 
-A Streamlit Component is made out of a Python API and a frontend (built using any web tech you prefer). 
+Avant d'installer le repos vous devez avoir les prerequis suivants:
 
-A Component can be used in any Streamlit app, can pass data between Python and frontend code, and and can optionally be distributed on [PyPI](https://pypi.org/) for the rest of the world to use.
+- [Le langage "Python3"](https://www.python.org/downloads/)
+- [Le serveur JavaScript "node js"](https://nodejs.org/en)
+- [Le gestion de package python "Poetry"](https://www.python.org/downloads/)
 
-* Create a component's API in a single line of Python:
-```python
-import streamlit.components.v1 as components
+## Installation du repos et des packages
 
-# Declare the component:
-my_component = components.declare_component("my_component", path="frontend/build")
+- Tapez les commandes une a une dans votre terminal.
 
-# Use it:
-my_component(greeting="Hello", name="World")
+- Pour la partie back "Streamlit":
+
 ```
-
-* Build the component's frontend out of HTML and JavaScript (or TypeScript, or ClojureScript, or whatever you fancy). React is supported, but not required:
-```typescript
-class MyComponent extends StreamlitComponentBase {
-    public render(): ReactNode {
-        // Access arguments from Python via `this.props.args`:
-        const greeting = this.props.args["greeting"]
-        const name = this.props.args["name"]
-        return <div>{greeting}, {name}!</div>
-    }
-}
-```
-
-## Quickstart
-
-* Ensure you have [Python 3.6+](https://www.python.org/downloads/), [Node.js](https://nodejs.org), and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed.
-* Clone this repo.
-* Create a new Python virtual environment for the template:
-```
-$ cd template
-$ python3 -m venv venv  # create venv
-$ . venv/bin/activate   # activate venv
-$ pip install streamlit # install streamlit
-```
-* Initialize and run the component template frontend:
-```
-$ cd template/my_component/frontend
-$ npm install    # Install npm dependencies
-$ npm run start  # Start the Webpack dev server
-```
-* From a separate terminal, run the template's Streamlit app:
-```
-$ cd template
-$ . venv/bin/activate  # activate the venv you created earlier
+$ git clone https://github.com/Dar-rius/dc.git  # clone repos
+$ cd dc # move to folder dc
+$ poetry install  # install all packages with poetry
+$ poetry shell   # activate env
+$ cd template   # move to template folder
 $ pip install -e . # install template as editable package
-$ streamlit run my_component/example.py  # run the example
+$ streamlit run app.py # run server streamlit
 ```
-* If all goes well, you should see something like this:
-![Quickstart Success](quickstart.png)
-* Modify the frontend code at `my_component/frontend/src/MyComponent.tsx`.
-* Modify the Python code at `my_component/__init__.py`.
 
-## Examples
+- Pour la partie frontend "node js":
 
-See the `template-reactless` directory for a template that does not use [React](https://reactjs.org/).
+Ouvrez un nouveau terminal et deplacez vous vers le repos dc et tapez les commandes suivantes:
 
-See the `examples` directory for examples on working with pandas DataFrames, integrating with third-party libraries, and more.
+```
+$ cd template/myApp/frontend #Move to frontend folder
+$ npm install    # Install npm dependencies
+$ npm start  # Start the Webpack dev server
+```
 
-## Community-provided Templates
+- Ensuite taper dans le navigateur [localhost:8501](http://localhost:8501/):
+- Vous arriverez sur cette page comme dans la capture ci-dessous:
+  ![Success](cap.png)
 
-These templates are provided by the community. If you run into any issues, please file your issues against their repositories.
+## Plus d'informations
 
-- [streamlit-component-svelte-template](https://github.com/93degree/streamlit-component-svelte-template) - [@93degree](https://github.com/93degree)
-- [streamlit-component-template-vue](https://github.com/andfanilo/streamlit-component-template-vue) - [@andfanilo](https://github.com/andfanilo)
-- [streamlit-component-template-react-hooks](https://github.com/whitphx/streamlit-component-template-react-hooks) - [@whitphx](https://github.com/whitphx)
-
-## Contributing
-
-If you want to contribute to this project, `./dev.py` script will be helpful for you. For details, run `./dev.py --help`.
-
-## More Information
-
-* [Streamlit Components documentation](https://docs.streamlit.io/library/components)
-* [Streamlit Forums](https://discuss.streamlit.io/tag/custom-components)
-* [Streamlit Components gallery](https://www.streamlit.io/components)
+- [Streamlit Components documentation](https://docs.streamlit.io/library/components)
+- [Streamlit Forums](https://discuss.streamlit.io/tag/custom-components)
+- [Streamlit Components gallery](https://www.streamlit.io/components)
