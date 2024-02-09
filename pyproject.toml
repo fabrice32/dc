@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "dc"
+version = "0.1.0"
+description = ""
+authors = ["Dar_rius <mohamedtine17@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+streamlit = "^1.31.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
